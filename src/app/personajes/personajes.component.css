@@ -1,0 +1,174 @@
+.status-img {
+  height: 24px; 
+  width: 24px;
+  margin-right: 8px; 
+  vertical-align: middle; 
+}
+
+.status {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+
+.character-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+.character-card {
+  position: relative;
+  display: flex;
+  width: 350px;
+  margin: 10px;
+  background-color: #2c2c2c;
+  color: #fff;
+  border-radius: 8px;
+}
+
+.character-id {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 14px;
+  color: #ffcc00;
+  font-weight: bold;
+}
+
+.character-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  margin: 15px;
+}
+
+.character-details {
+  padding: 10px;
+  flex: 1;
+}
+
+.character-details h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.location, .first-seen {
+  margin: 10px 0 0 0;
+  font-size: 12px;
+  color: #ffe96a;
+  font-weight: bold;
+  display: block;
+}
+
+.location span, .first-seen span {
+  display: block;
+  color: #ffffff;
+  font-weight: normal;
+  margin-top: 2px;
+}
+
+mat-paginator {
+  color: #ffffff;
+  background-color: #3a3a3a;
+  border-top: 1px solid #ffffff;
+  padding: 5px;
+}
+
+mat-paginator .mat-paginator-range-label,
+mat-paginator .mat-paginator-icon {
+  color: #ffffff !important;
+}
+
+mat-paginator .mat-paginator-navigation-button {
+  color: #ffffff;
+  border: none;
+  background-color: transparent;
+}
+
+mat-paginator .mat-paginator-navigation-button:hover {
+  background-color: #444444;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+mat-form-field {
+  background-color: #2c2c2c;
+  color: #ffffff;
+  border-radius: 8px;
+}
+
+mat-form-field.mat-focused .mat-form-field-label {
+  color: #ffcc00;
+}
+
+mat-form-field.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #3a3a3a;
+  border-radius: 8px;
+}
+
+mat-form-field .mat-input-element {
+  color: #ffffff;
+}
+
+mat-form-field .mat-select-arrow {
+  color: #ffffff;
+}
+
+.mat-select-panel {
+  background-color: #2c2c2c !important;
+  color: #ffffff !important;
+}
+
+.mat-option.mat-selected:not(.mat-option-disabled) {
+  background-color: #444444 !important;
+}
+
+.mat-option:hover {
+  background-color: #555555 !important;
+}
+
+button {
+  background-color: #ffcc00;
+  color: #1e1e1e;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #e6b800;
+}
+.status {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+
+.status-dot {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px; 
+}

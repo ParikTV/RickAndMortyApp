@@ -1,0 +1,60 @@
+<div class="episodes-container">
+  <form (ngSubmit)="applyFilter()">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="filter.name" name="name" placeholder="Enter episode name">
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill">
+      <mat-label>Episode Code</mat-label>
+      <input matInput [(ngModel)]="filter.episode" name="episode" placeholder="Enter episode code (e.g., S01E01)">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Order by Air Date</mat-label>
+      <mat-select [(ngModel)]="filter.order" name="order">
+        <mat-option value="desc">Most Recent to Oldest</mat-option>
+        <mat-option value="asc">Oldest to Most Recent</mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    <button mat-raised-button color="primary" type="submit">Apply Filter</button>
+  </form>
+
+  <table mat-table [dataSource]="episodios" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let episode"> {{episode.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let episode"> {{episode.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="air_date">
+      <th mat-header-cell *matHeaderCellDef> Air Date </th>
+      <td mat-cell *matCellDef="let episode"> {{episode.air_date}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="episode">
+      <th mat-header-cell *matHeaderCellDef> Episode </th>
+      <td mat-cell *matCellDef="let episode"> {{episode.episode}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="created">
+      <th mat-header-cell *matHeaderCellDef> Created </th>
+      <td mat-cell *matCellDef="let episode"> {{episode.created}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator
+    [length]="totalResults"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[20]"
+    (page)="handlePageEvent($event)">
+  </mat-paginator>
+</div>

@@ -1,0 +1,54 @@
+<div class="filter-container">
+  <form (ngSubmit)="searchById()">
+    <mat-form-field appearance="fill">
+      <mat-label>Search by ID(s)</mat-label>
+      <input matInput [(ngModel)]="searchId" name="searchId" placeholder="Enter ID or comma-separated IDs">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Search</button>
+  </form>
+
+  <form (ngSubmit)="applyFilter()">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="filter.name" name="name">
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill">
+      <mat-label>Status</mat-label>
+      <mat-select [(ngModel)]="filter.status" name="status">
+        <mat-option value="">All</mat-option>
+        <mat-option value="alive">Alive</mat-option>
+        <mat-option value="dead">Dead</mat-option>
+        <mat-option value="unknown">Unknown</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Apply Filter</button>
+  </form>
+</div>
+
+<div class="character-container">
+  <mat-card class="character-card" appearance="outlined" *ngFor="let personaje of personajes">
+    <div class="character-id">{{ personaje.id }}</div>
+    <img mat-card-image [src]="personaje.image" [alt]="'Image of ' + personaje.name" class="character-image">
+    <mat-card-content class="character-details">
+      <h2>{{ personaje.name }}</h2>
+      <p class="status" [style.color]="getStatusColor(personaje.status)">
+        {{ personaje.status | lowercase }} - {{ personaje.species }}
+      </p>
+      <p class="location">
+        Last known location: <span>{{ personaje.location.name }}</span>
+      </p>
+      <p class="first-seen">
+        First seen in: <span>{{ personaje.episode[0] }}</span>
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<mat-paginator
+  [length]="totalResults"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[20]"
+  (page)="handlePageEvent($event)">
+</mat-paginator>
